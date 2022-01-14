@@ -8,6 +8,6 @@
 
 
 ## Live site
-https://
+https://kronosgr.github.io/JS-joke-teller/
 
-[![Screenshot](screenshot.png)](https://)
+[![Screenshot](screenshot.png)](https://kronosgr.github.io/JS-joke-teller/)
