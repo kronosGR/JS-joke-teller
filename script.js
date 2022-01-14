@@ -1,8 +1,17 @@
 const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
+const subtitles = document.getElementById('subtitles');
 
-function toggleButton(){
+function toggleButton() {
   button.disabled = !button.disabled;
+}
+
+function showSubs() {
+  subtitles.style.display= 'inline-block';
+}
+
+function hideSubs() {
+  subtitles.style.display= 'none';
 }
 
 function tellMe(joke) {
@@ -31,12 +40,16 @@ async function getJoke() {
       joke = data.joke;
     }
     tellMe(joke);
+    subtitles.innerHTML = joke;
+   showSubs();
     toggleButton();
   } catch (error) {
     console.log('whoops', error);
   }
 }
 
-button.addEventListener('click', getJoke)
-audioElement.addEventListener('ended', toggleButton)
-
+button.addEventListener('click', getJoke);
+audioElement.addEventListener('ended', () => {
+  hideSubs();
+  toggleButton();
+});
